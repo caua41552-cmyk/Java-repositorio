@@ -1,0 +1,353 @@
+Aqui vão estar as anotações de java, ebaaa
+
+public class Arquivojava {
+    public static void main(String[] args) {
+    //Comece a programar aqui
+    }
+}
+
+// isso aqui é anotação se você não percebeu.
+quando você for programar, tem que fazer tudo dentro do public static void main, no caso, no começo kk
+
+OBS: print sempre deve ser aspas duplas, java é muita frescura.
+System.out.print("Olá mundo!"); Esse é o print, e tem que estar dentro do public static void lá
+System.out.printf("O número digitado é %d.", numero_1); o numero_1 é uma variável, e no terminal ele vai mostrar o número dessa variável
+System.out.printf("%d + %f = %f", numero_1, Numero_2, (numero_1 + Numero_2)); tem que ter esses parenteses, e também, no format você tem que usar %f caso seja um número decimal mais um número inteiro, no caso a soma deles
+format: %s string %d inteiro (Não sei porque...) %f número decimal %b para boleano
+
+
+System.out.println("Olá mundo!"); esse print ele pula uma linha após o texto!
+
+
+int Numero_2 = 10; assim se cria uma variável, Numero_2 é o nome
+String Nome = "Paulo"; assim se cria uma variável como string, COM O "S" MAIÚSCULO, SEMPRE MAIÚSCULO 
+double Peso = 67.00; quando usar o input para digitar um número flutuante, ou dobro, você vai ter que digitar por exemplo 56,90 mas se for direto na variável, tem que usar ponto
+tem o boleano, mas depois eu vejo isso kk
+char ele recebe apenas um caracter, ele usa aspas simples
+float é mais limitado que o double para guardar casas decimais
+long você usa esse quando o número inteiro passar de 2.147.483.647
+byte só guarda números entre -128 e 127
+short só guarda números entre -32.768 e 32.767.
+no arraylist a diferença é que o Int vira Integer e o char vira Character, o resto, não muda nada, eles só ficam com a inicial maiúscula
+
+INPUT AQUI EM BAIXO!
+import java.util.Scanner; se tem que importar essa biblioteca, porque não existe input no java kakaka
+Scanner input = new Scanner(System.in); você tem que criar uma variável, que eu nomeei de input, mas você pode nomear como quiser, e colcoar esse mesmo código que aparece após o =, ele serve para liberar o input
+import java.nio.charset.StandardCharsets; Isso é muito útil, porque ele vai permitir você digitar letras com acentuação
+Scanner input = new Scanner(System.in, StandardCharsets.UTF_8); Coloca isso no scanner ou input que ele vai permitir você digitar
+String Nome = input.nextLine(); input é o nome da variável que recebeu o Scanner, mas enfim
+
+.nextLine() input para String .nextInt() input para números inteiros .nextDouble() variável para numero do tipo double (flutuante).
+Outra coisa, o java é muito exigente, se você colocar o input para string numa variável do tipo numero inteiro vai dar erro... kk
+
+if (Numero % 2 == 0){
+    System.out.print("É um número par!");
+} else if (Numero % 2 == 1){
+    System.out.print("É um número impar!");
+} else {
+    System.out.print("É um número inválido!");
+} 
+É assim que se utiliza if else if e else, o elif não existe aqui... e em algumas outras linguagens!
+String situacao = (media >= 7) ? "Aprovado": "NÃO PASSARÁS"; tem esse outro jeito também, mesma coisa do anterior, só que com menos linhas de código.
+
+switch (local) {
+    case 1:
+        System.out.println("Olá");
+        break;
+            
+    case 2:
+        System.out.println("Bom dia!");
+        break
+
+    case 3:
+        System.out.println("Como vai?");
+        break
+
+    default:
+        break;
+}
+é necessário colocar o switch e nos () você deve colcoar o nome da variável,
+case "SIM": isso você usa caso a variável vá receber um valor como string
+&& and || ou ! not
+
+while (contador < 10){
+    System.out.println();
+    System.out.printf("O contador está em %d", contador);
+    contador ++;
+// se quiser somar 2 ao invés de 1 faça assim: contador += 2; invés de ++;
+}
+o contador ++ vai somar mais um
+obs: existe -- e talvez // e **, mas os últimos dois eu não sei...
+os operadores você sabe: ++(soma mais um) += 2 (soma mais dois, pode trocar o dois se quiser) -= (ele vai subtraindo) e o resto
+
+Scanner scanner = new Scanner(System.in);
+
+int senhaCorreta = 1234;
+int tentativaUsuario = 0;
+        
+while (tentativaUsuario != senhaCorreta){
+    System.out.print("Digite a senha (ou tente novamente): ");
+
+    tentativaUsuario = scanner.nextInt();
+            
+    if (tentativaUsuario != senhaCorreta){
+        System.out.print("Senha incorreta!");
+        }  
+    } 
+
+        System.out.println("Acesso concedido! Você é o mestre do Java.");
+
+        scanner.close();
+    }
+
+do {
+    System.out.print("Tentando estabilizar reator... Digite 'ok' quando conseguir: ");
+    resposta = scanner.nextLine();
+            
+    if (resposta.equals("ok")){
+        reatorEstavel = true;
+    }
+
+    } while (!reatorEstavel);
+Resumo: O que estiver do "do" vai ser executado, e o while só diz quando parar
+o !reatorEstavel é a mesma coisa que reatorEstavel == False
+while (!tentativa.equals(senhaCorreta)); então, ele vai executar enquanto a variavel tentativa receber um valor diferente da variável senhaCorreta
+
+do {
+    System.out.println("Escolha 0 ou 1:");
+    confirmarGoogleDrive = scanner.nextInt();
+
+    // Se a resposta for válida, EU PARO o loop
+    if (confirmarGoogleDrive == 0 || confirmarGoogleDrive == 1) {
+        break; 
+    }
+
+    System.out.println("Opção inválida!");
+} while (true); // Roda para sempre até encontrar o 'break'
+olha o while true do python aí
+boolen rodando = false;
+do{ 
+    int escolhaUsuario = scanner.nextInt();
+            
+    switch (escolhaUsuario) {
+        case 1:
+                System.out.print("Você comprou café!");
+                saldo -= 5;  
+                break;
+
+        case 2:
+            System.out.printf("Saldo atual: %f.", saldo);
+            break;
+        
+        case 0:
+            System.out.print("Obrigado por comprar!") ;
+            rodando = false;
+
+        default:
+            break;
+    } while (rodando);
+só para de excutar quando o boleano for verdadeiro
+
+for (int i = 1; i <= 10; i++){
+    System.out.printf("Estrelinha numero: %d%n", i);
+}
+Eu preciso explicar algo aqui? eu acho que não né?
+
+int comeco = 5;
+int fim = 50;
+int pulo = 5;        
+for (int i = comeco; i <= fim; i = pulo){
+    System.out.printf("Número: %d.%n", i);
+}
+Não tem muito o que explicar aqui...
+
+int balde = 10;
+        
+for (int i = balde; i >= 0; i--){
+    System.out.printf("%d%n", i);
+} 
+a variável balde é o começo, se quisesse que fosse o fim era só fazer int i = 0; i = balde; i ++ ia funcionar
+
+int numero = 10;
+int fim = 15;
+int idade = scanner.nextInt();
+scanner.nextLine(); // Limpa o buffer (consome o Enter)
+String nome = scanner.nextLine(); // Agora sim ele espera você digitar o nome.
+quando você usa um input no int e o usuário apertar enter, vai criar meio que uma linha invisível que vai igorar o próximo input de next.line()
+então, você tem que fazer isso para dar erro
+
+for (; numero <= fim; numero ++){
+    System.out.printf("%d%n",numero);
+}
+o ; no começo ele serve para dizer que o começo não vai ser uma variável criada
+
+for (int i = 1; i <= 10;){
+    System.out.printf("%d%n",i);
+    i++;
+}
+outro jeito de usar for aí, mas é meio meh, se quiser colocar variáveis externas use sua criatividade
+
+Métodos de string!
+.toLowerCase() deixa tudo em minisculo
+.toUpperCase() deixa tudo em maiusculo
+.trim() é o .strip do python, mas com outro nome
+.replace("a", "b") isso aqui você entendeu, e se não entendeu, NÃO É POSSÍVEL
+.equals() você viu lá em cima 
+.equalIgnoreCase() o anterior, se você digitasse uma letra maiúscula ou minúscula, daria erro, com esse não
+.startswith() Ele vai ver se a primeira palavra digitada vai ter o que tiver entre os parenteses
+.endswith() ele vai ver se a última palavra digitada vai terminar com o que tiver digitado nos parentes
+.contains() ele verifica todo uma frase e verifica se vai ter uma palavra digitada
+.isEmpty() ele verifica se o usuário não digitou nada kk
+.isBlank() ele é um isEmpty só que melhorado kk, o isEmpty só funciona se o usuário digitar ""
+"a".repeat(4) ele vai retornar aaaa literalmente aaaa
+.indexOf("texto") ele vai procurar a palavra texto dentro da variável, do início ao fim e retorna a posição dela 
+.lastIndexOf("texto") ele vai fazer a mesma coisa do anterior, porém, ele vai ir do fim para o início
+.charAt(3) você dá a posição no caso ali é o 3, e ele vai retornar o que tem nessa posição
+.formatted() ele é tipo o format do python você vai ver
+System.out.println("Usuário %s | Level: %d".formatted(usuarioDigitar, numeroQualquer)); assim se usa o format
+.split() logo logo chegaremos em você...
+
+System.out.printf("O usuário digitou: %s.", usuarioDigitar.toUpperCase()); ASSiM QUE SE USA, no print
+String usuarioDigitar = scanner.nextLine().toUpperCase(); esse, quando o usuário digitar já vai estar em maiúscula, se você colocar essa variável no print já vai estar em MAIÚSCULO
+
+String usuarioDigitar = scanner.nextLine().toUpperCase();
+if (usuarioDigitar.equals("OLA")) Isso funciona, se o usuário digitar "ola" ele vai entender da mesma forma que é "OLA" mesmo o usuário tendo digitado em minisculo
+
+String usuarioDigitar = scanner.nextLine()
+                               .toLowerCase()
+                               .replace("a", "@")
+                               .replace("e", "3")
+                               .trim();
+
+
+Vetores!
+String[] lista = new String[2];
+lista[0] = "JOão";
+lista[1] = "Paulo";
+
+a lista no java é limitada, o que estiver ali no string[x] vai ser a quantidade de itens que a lista vai guardar, nem mais nem menos
+para adicionar é lista[0] = "joão"; e vai indo, 0, 1, 2
+System.out.println("Total names: %d".formatted(lista.length)); isso é para caso você queira contar os itens da lista, é só fazer e não por os "()"
+
+String[] lista = {"Paulo", "Ricardo!"}; o jeito rápido, caso você já saiba os valores.
+no java não dá para acrescentar e remover itens da lista, infelizmente... 
+Int[lista] = {1, 4, 6}; cria uma lista int, se for bolean é bolean e se for double é double
+
+for (String nomes: lista){
+    System.out.println("%s nomes.".formatted(nomes));
+} é assim que usa o format com for
+
+String[] nomes = {"João", "Paulo", "Roberto"};
+int[] idade = {15, 34, 9};
+
+for (int i =0; i < nomes.length; i++){
+    System.out.println("O seu nome é %s e tem %d de idade.".formatted(nomes[i], idade[i]));
+}
+isso é a coisa mais próxima que temos de for nomes, idade in range do python.
+
+for (String nome : nomes) {
+    if (nome.equals("Mario")) {
+        System.out.println("Achei o %s! Parando a busca...".formatted(nome));
+        break; // Sai do loop na hora
+    }
+O break ele vai quebrar quando achar o nome Mario,
+daria para colocar um continue, se fizesse !nome.equal("Mario") iria prosseguir até achar o nome mario.
+
+String[] produtos = {"Monitor", "Teclado", "Rato", "Auscultadores"};
+int[] quantidade = {5, 0, 12, 0};
+
+Exemplo de código:
+for (int i = 0; i < produtos.length; i++){
+    if (quantidade[i] == 0){
+        System.out.println("Estamos sem o produto %s no estoque, peço desculpas.".formatted(produtos[i], quantidade[i]));
+    } else {
+        System.out.println("Produto: %s || Estoque: %d".formatted(produtos[i], quantidade[i]));
+    }
+}
+
+String nomes = "João, Paulo, Jonas, André";
+String[] lista = nomes.split(",");
+total += numero[i];
+
+
+ArrayList
+antes de tudo você tem que importar: 
+import java.util.ArrayList; 
+ArrayList<Integer> = new ArrayList<>(); isso cria uma arraylist do tipo inteiro.
+OBS: PARA DEFINIR OUTROS TIPOS DE ARRAY LIST, OS ÚNICOS QUE MUDAM SÃO O INT E O CHAR, INT VIRA INTEGER E O CHAR VIRA CHARACTER
+E TAMBÉM, NÃO MUDA NADA O RESTO, O "double" VIRA "Double" ou seja, inicial maiúscula
+
+adicionar: .add()
+pegar: .get()
+substituir: .set() 
+remover: .remove()
+tamanho: .size() ele vai retornar a quantidade de elementos que tem em uma lista
+
+nomes.add("João");
+nomes.add("Juninadsfasdf");
+nomes.add("asdlkçfjasdçlkfja");
+idade.add(5);
+//As duas formas de usar o remove abaixo
+nomes.remove(1); // Esse ele remove pela posição, ou seja, vai remover o segundo elemento, posição, 0, 1, 2, lembra?
+nomes.remove("asdlkçfjasdçlkfja"); // Esse é digitando diretamente o nome do item
+nomes.set(0, "Pedro");
+nomes.size();
+
+System.out.println("%s e %d".formatted(nomes.get(0), idade.get(0)));
+Tem que ter esse .get se quiser mostrar o item da lista kk
+
+ArrayList<String> lista = new ArrayList<>(1000);  isso cria uma lista capaz de guardar mil itens, isso funciona
+arraylist começa com uma capacidade de 10 e vai se expandindo conforme aumenta, ou seja, se tiver um 11 elemento a lista ela se expande
+bem, caso você coloque lista 2 = lista 1, e você mudar algo na lista 2 na lista 1 vai mudar também
+
+String nome = scanner.nextLine();
+nomes.add(nome); isso aqui funciona, o usuário digita e depois é acrescentado na arraylist
+
+nomes.add(scanner.nextLine()); esse jeito funciona também kk
+
+String numeroPontos = scanner.nextLine();
+int numeroConvertido = Integer.parseInt(numeroPontos);
+pontuacao.add(numeroConvertido);
+isso ele serve para converter uma string em numero inteiro, mas eu não vou saber explicar como
+isso resolve o problema do enter invisível
+
+ABAIXO ESTÁ A LISTA PURA DO JAVA, E PARA MOSTRAR ELA NO PRINT TEM QUE IMPORTAR A BIBLIOTECA DO ArrayList
+que palhaçada, para os valores da lista aparecerem no print, tem que usa biblioteca...
+String frutas = "abobora, banana, maçã";
+String[] pedaco = frutas.split(",");
+
+System.out.print("Os itens na lista: %s".formatted(Arrays.toString(pedaco)));
+o .split ele serve para separar os elementos, antes era apenas abobora, banana, maca, mas agora se eu quiser acessar banana eu posso, porque não são mais únicos
+
+VAI ESTUDAR COMO TRANSFORMAR STRING EM INT.
+
+existem três jeitos de fazer a conversão de string para int
+
+1-
+Scanner scanner = new Scanner(System.in);
+
+System.out.print("Digite dois números na mesma linha:");
+String numeros = scanner.nextLine();
+String[] nums = numeros.split(" ");
+int num1 = Integer.parseInt(nums[1]);
+int num2 = Integer.parseInt(nums[2]);
+
+System.out.println("A soma entre %d e %d é igual a %d.".formatted(num1, num2, (num1 + num2)));
+scanner.close();
+para transformar string em outras coisas usando esse .parse é simples
+exemplo para transformar string em double:  Double.parseDouble(var) simplesmente isso kk
+
+2- casting (conversão entre números)
+double preco = 19.99;
+int precoInteiro = (int) preco; // Você "fatiou" a vírgula fora!
+
+System.out.println(precoInteiro); // Vai imprimir 19
+
+3- De qualquer coisa para 
+double bonus = 50.85;
+int bonusNoPapel = (int) bonus;
+
+String texto = "100";
+int valorConvertido = Integer.parseInt(texto);
+
+System.out.println(bonusNoPapel + valorConvertido);
