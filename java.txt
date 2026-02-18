@@ -343,6 +343,9 @@ int precoInteiro = (int) preco; // Você "fatiou" a vírgula fora!
 
 System.out.println(precoInteiro); // Vai imprimir 19
 
+byte -> short -> char -> int -> long -> float -> double
+se subir a escada, não usa casting, se descer, sim
+
 3- De qualquer coisa para 
 double bonus = 50.85;
 int bonusNoPapel = (int) bonus;
