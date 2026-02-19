@@ -1,5 +1,7 @@
 Aqui vão estar as anotações de java, ebaaa
 
+ANOTAÇÃO: O COMEÇO, CRIAÇÃO DE VARIÁVEIS, SCANNER, PRINT
+
 public class Arquivojava {
     public static void main(String[] args) {
     //Comece a programar aqui
@@ -13,6 +15,7 @@ OBS: print sempre deve ser aspas duplas, java é muita frescura.
 System.out.print("Olá mundo!"); Esse é o print, e tem que estar dentro do public static void lá
 System.out.printf("O número digitado é %d.", numero_1); o numero_1 é uma variável, e no terminal ele vai mostrar o número dessa variável
 System.out.printf("%d + %f = %f", numero_1, Numero_2, (numero_1 + Numero_2)); tem que ter esses parenteses, e também, no format você tem que usar %f caso seja um número decimal mais um número inteiro, no caso a soma deles
+System.out.print("%d".formatted(num1)) Outra forma de usar o format aí
 format: %s string %d inteiro (Não sei porque...) %f número decimal %b para boleano
 
 
@@ -40,6 +43,12 @@ String Nome = input.nextLine(); input é o nome da variável que recebeu o Scann
 .nextLine() input para String .nextInt() input para números inteiros .nextDouble() variável para numero do tipo double (flutuante).
 Outra coisa, o java é muito exigente, se você colocar o input para string numa variável do tipo numero inteiro vai dar erro... kk
 
+
+
+
+
+ANOTAÇÃO: USO DO IF ELSE IF E ELSE
+
 if (Numero % 2 == 0){
     System.out.print("É um número par!");
 } else if (Numero % 2 == 1){
@@ -49,6 +58,10 @@ if (Numero % 2 == 0){
 } 
 É assim que se utiliza if else if e else, o elif não existe aqui... e em algumas outras linguagens!
 String situacao = (media >= 7) ? "Aprovado": "NÃO PASSARÁS"; tem esse outro jeito também, mesma coisa do anterior, só que com menos linhas de código.
+
+
+
+USO DO switch
 
 switch (local) {
     case 1:
@@ -68,7 +81,11 @@ switch (local) {
 }
 é necessário colocar o switch e nos () você deve colcoar o nome da variável,
 case "SIM": isso você usa caso a variável vá receber um valor como string
+
 && and || ou ! not
+
+
+ANOTAÇÃO: WHILE E DO WHILE
 
 while (contador < 10){
     System.out.println();
@@ -100,6 +117,9 @@ while (tentativaUsuario != senhaCorreta){
         scanner.close();
     }
 
+
+DO while
+
 do {
     System.out.print("Tentando estabilizar reator... Digite 'ok' quando conseguir: ");
     resposta = scanner.nextLine();
@@ -126,6 +146,7 @@ do {
 } while (true); // Roda para sempre até encontrar o 'break'
 olha o while true do python aí
 boolen rodando = false;
+
 do{ 
     int escolhaUsuario = scanner.nextInt();
             
@@ -147,6 +168,12 @@ do{
             break;
     } while (rodando);
 só para de excutar quando o boleano for verdadeiro
+
+
+
+
+
+ANOTAÇÃO: For
 
 for (int i = 1; i <= 10; i++){
     System.out.printf("Estrelinha numero: %d%n", i);
@@ -185,9 +212,15 @@ for (int i = 1; i <= 10;){
     System.out.printf("%d%n",i);
     i++;
 }
+
 outro jeito de usar for aí, mas é meio meh, se quiser colocar variáveis externas use sua criatividade
 
-Métodos de string!
+
+
+
+
+ANOTAÇÃO: Métodos de string!
+
 .toLowerCase() deixa tudo em minisculo
 .toUpperCase() deixa tudo em maiusculo
 .trim() é o .strip do python, mas com outro nome
@@ -205,7 +238,7 @@ Métodos de string!
 .charAt(3) você dá a posição no caso ali é o 3, e ele vai retornar o que tem nessa posição
 .formatted() ele é tipo o format do python você vai ver
 System.out.println("Usuário %s | Level: %d".formatted(usuarioDigitar, numeroQualquer)); assim se usa o format
-.split() logo logo chegaremos em você...
+.split() você usa isso para separar itens da lista
 
 System.out.printf("O usuário digitou: %s.", usuarioDigitar.toUpperCase()); ASSiM QUE SE USA, no print
 String usuarioDigitar = scanner.nextLine().toUpperCase(); esse, quando o usuário digitar já vai estar em maiúscula, se você colocar essa variável no print já vai estar em MAIÚSCULO
@@ -220,7 +253,12 @@ String usuarioDigitar = scanner.nextLine()
                                .trim();
 
 
-Vetores!
+
+
+
+ANOTAÇÃO: Vetores!
+
+Obs: esse primeiro vetor é a lista do JAVA, parece uma tupla, mas é uma lista.
 String[] lista = new String[2];
 lista[0] = "JOão";
 lista[1] = "Paulo";
@@ -269,8 +307,18 @@ String nomes = "João, Paulo, Jonas, André";
 String[] lista = nomes.split(",");
 total += numero[i];
 
+use isso para mostarar os itens da lista: println("As frutas da lista são: %s".formatted(String.join(",", lista)));
+ABAIXO ESTÁ A LISTA PURA DO JAVA, E PARA MOSTRAR ELA NO PRINT TEM QUE IMPORTAR A BIBLIOTECA DO ArrayList
+que palhaçada, para os valores da lista aparecerem no print, tem que usa biblioteca...
+String frutas = "abobora, banana, maçã";
+String[] pedaco = frutas.split(",");
 
-ArrayList
+System.out.print("Os itens na lista: %s".formatted(Arrays.toString(pedaco)));
+o .split ele serve para separar os elementos, antes era apenas abobora, banana, maca, mas agora se eu quiser acessar banana eu posso, porque não são mais únicos
+
+
+
+ANOTAÇÃO: ArrayList
 antes de tudo você tem que importar: 
 import java.util.ArrayList; 
 ArrayList<Integer> = new ArrayList<>(); isso cria uma arraylist do tipo inteiro.
@@ -305,25 +353,80 @@ nomes.add(nome); isso aqui funciona, o usuário digita e depois é acrescentado 
 
 nomes.add(scanner.nextLine()); esse jeito funciona também kk
 
+
+
+ANOTAÇÃO: "DICIONÁRIO"
+Primerio importe: import java.util.HashMap;
+HashMap <String, String> usuarios = new HashMap<>(); assim se cria um HashMap
+usuarios.put("Paulo", "Banana"); assim que se coloca um item no dicionário, a chave é paulo, e o valor, banana
+System.out.println("A fruta é: %s".formatted(usuarios.get("Paulo"))); assim que se faz para mostrar o valor banana
+
+Lá vem comando
+.put("Chave", 3) ele vai colocar a chave Chave dentro do hasmap, com o valor 3
+.get("Chavenome") aqui ele vai pegar o valor da chave que estiver nos parenteses
+.containsKey("paulo") ele vai ver se dentro do HashMap possui a chave paulo, se não tiver ele retorna false, se tiver true
+.remove("Ola") ele vai remover a chave ola, e o valor dela
+.clear() ele remove todos os itens do dicionário, todos 
+.isEmpty() ele verifica se o dicionário está vazio, se estiver, ele vai retornar true, se não, ele vai retornar false
+.putIfAbsent(chave, valor) ele verifica se tem a chave valor, se tiver ele não faz nada, se não existir, ele vira um put kk
+.replace("key", "valor") ele troca o valor que a chave key tinha antes por valor 
+.size() ele conta quantos itens tem na lista
+
+exemplo usando todos os comandos:
+HashMap <String, String> usuarios = new HashMap<>(); 
+
+usuarios.put("João", "banana");
+usuarios.put("Gabriel", "Morango");
+usuarios.put("Jonas", "Peixe");
+usuarios.remove("Gabriel");
+usuarios.putIfAbsent("Lucas", "ameixa");
+usuarios.replace("João", "Manga");
+int termosQuantidade = usuarios.size();
+boolean vF = usuarios.isEmpty();
+
+System.out.println("O Gabriel ainda existe? " + usuarios.containsKey("Gabriel"));
+System.out.println("O dicionário está vazio? %b".formatted(vF));
+System.out.println("O dicionário possui %d itens.".formatted(termosQuantidade));
+System.out.println("%s".formatted(usuarios.get("Jonas")));
+usuarios.clear()
+
+Uso do for:
+    
+MOstra apenas chave
+for (String chave: usuarios.keySet()){
+    System.out.println("Chave: %s".formatted(chave));
+}
+
+Mostra apenas os valores das chaves
+for (String senha: usuarios.values()){
+    System.out.println("Valores = %s".formatted(senha));
+}
+
+Melhor jeito para mostrar a chave e o valor dela
+for (var entrada: usuarios.entrySet()){
+    System.out.println("Usuário: %s ||| senha: %s ".formatted(entrada.getKey(), entrada.getValue()));
+}
+
+import java.util.Map; tem que importar essa biblioteca para fazer isso
+for (Map.Entry<String, String> entrada: usuarios.entrySet()){
+    System.out.println("Usuário: %s ||| senha: %s ".formatted(entrada.getKey(), entrada.getValue()));
+}
+
+
+
+
+
+ANOTAÇÃO: Conversão de TIPOS
+
 String numeroPontos = scanner.nextLine();
 int numeroConvertido = Integer.parseInt(numeroPontos);
 pontuacao.add(numeroConvertido);
 isso ele serve para converter uma string em numero inteiro, mas eu não vou saber explicar como
 isso resolve o problema do enter invisível
 
-ABAIXO ESTÁ A LISTA PURA DO JAVA, E PARA MOSTRAR ELA NO PRINT TEM QUE IMPORTAR A BIBLIOTECA DO ArrayList
-que palhaçada, para os valores da lista aparecerem no print, tem que usa biblioteca...
-String frutas = "abobora, banana, maçã";
-String[] pedaco = frutas.split(",");
-
-System.out.print("Os itens na lista: %s".formatted(Arrays.toString(pedaco)));
-o .split ele serve para separar os elementos, antes era apenas abobora, banana, maca, mas agora se eu quiser acessar banana eu posso, porque não são mais únicos
-
-VAI ESTUDAR COMO TRANSFORMAR STRING EM INT.
-
-existem três jeitos de fazer a conversão de string para int
-
-1-
+Conversão de TIPOS
+exemplos de conversão
+1:
 Scanner scanner = new Scanner(System.in);
 
 System.out.print("Digite dois números na mesma linha:");
@@ -346,11 +449,39 @@ System.out.println(precoInteiro); // Vai imprimir 19
 byte -> short -> char -> int -> long -> float -> double
 se subir a escada, não usa casting, se descer, sim
 
-3- De qualquer coisa para 
-double bonus = 50.85;
-int bonusNoPapel = (int) bonus;
 
-String texto = "100";
-int valorConvertido = Integer.parseInt(texto);
 
-System.out.println(bonusNoPapel + valorConvertido);
+
+
+ANOTAÇÃO: Funções
+
+para criar uma função a gente faz public static void algo (String hum){}
+você faz isso fora do public static void main
+public static void (int var){} (int var) serve para dizer que a variável a ser digitada vai ser inteira você usa para criar uma função que só mostra coisas na tela 
+public static int você usa para fazer algum cálculo e e retornar um valor int
+public static string existem outros também, não vou entrar em méritos.
+
+public static void main(String[] args) {
+    Scanner scanner = new Scanner (System.in);
+        
+    System.out.println("Digite um número: ");
+    int usuario = scanner.nextInt();
+    dobro(usuario);
+
+    System.out.print("O dobro do número %d é %d.".formatted(usuario, dobro(usuario)));
+    scanner.close();
+}
+
+public static int dobro(int num1){
+    return num1 * 2;
+}
+
+exemplo de código, return voltoooou AEEEE
+
+outra forma de usar o print:
+
+int dobro = dobro(usuario);
+System.out.print("O dobro do número %d é %d.".formatted(usuario, dobro));
+você cria uma variável que vai receber o valor retornado da função/método dobro
+NÃO USE O RETURN NULL, SE FOR CRIAR UMA FUNÇÃO QUE NÃO RETORNA UM VALOR, USE O PUBLIC STATIC VOID, SEU ANIMALAL
+Você nunca vai usar o return null; você usa quando quer que a função não retorne nada
