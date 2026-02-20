@@ -485,3 +485,119 @@ System.out.print("O dobro do número %d é %d.".formatted(usuario, dobro));
 você cria uma variável que vai receber o valor retornado da função/método dobro
 NÃO USE O RETURN NULL, SE FOR CRIAR UMA FUNÇÃO QUE NÃO RETORNA UM VALOR, USE O PUBLIC STATIC VOID, SEU ANIMALAL
 Você nunca vai usar o return null; você usa quando quer que a função não retorne nada
+
+package projeto; // Nome da pasta que acabamos de criar
+
+public class Heroi {
+    public String nome;
+    public int nivel;
+
+    // Construtor para facilitar a criação
+    public Heroi(String nome, int nivel) {
+        this.nome = nome;
+        this.nivel = nivel;
+    }
+
+    public void status() {
+        System.out.println("🛡️ Herói: " + nome + " | Nível: " + nivel);
+    }
+}
+
+package projeto; // Mesma pasta, mesmo pacote
+
+public class Start {
+    public static void main(String[] args) {
+        // Criando o herói usando o arquivo Heroi.java
+        Heroi meuHeroi = new Heroi("Slayer C", 99);
+
+        System.out.println("--- Iniciando Jornada ---");
+        
+        // Chamando o método que está no outro arquivo
+        meuHeroi.status();
+        
+        System.out.println("O sistema de importação funcionou!");
+    }
+}
+
+Exemplo de java poo... e com importação de um arquivo
+quando for imporar um arquivo, nos dois arquivos você tem que usar import package, nos dois
+na linha Heroi meuHeroi = new Heroi("A", 99), o Heroi serve para dizer, ó, isso vai sair do outro arquivo, sem ela não dá para chamar o método
+o new serve para colocar os valores nos parenteses e o Heroi() não preciso explicar né? kk
+para usar o this. one, você tem que fazer o public String nome; e outras coisas, porque senão não dá para usar o .this
+o .thisnome = nome; é semelhante ao .self do python 
+
+\\Isso aqui é outro arquivo, caso esteja se perguntando kk, esse e o outro
+package javaestudos;
+// O 'extends' diz que tudo que o Conversor tem, a ContaEspecial também terá!
+public class ContaEspecial extends Conversor {
+    public double limite;
+
+    public ContaEspecial(String dono, double saldo, double limite) {
+        // O 'super' chama o construtor da classe mãe (Conversor)
+        // Ele envia o dono e o saldo para o molde original
+        super(dono, saldo); 
+        this.limite = limite;
+    }
+
+    public void exibirLimite() {
+        System.out.println("Seu limite de crédito é: R$" + this.limite);
+    }
+}
+
+a primeira linha está dizendo que a classe ContaEspecial vai receber todos os self da classe Conversor, que está em outro arquivo kk
+o super() serve para dizer, pega os valores da classe Conversor
+o super() tem que estar acima de todos, 
+
+    @Override
+    public void status() {
+    // Aqui está o pulo do gato!
+    System.out.println("--- STATUS DE GUERREIRO ---");
+    System.out.println("Nome: " + this.nome);
+    System.out.println("Nível: " + this.level);
+    System.out.println("Poder de Ataque: " + this.forca);
+}
+
+o método status já existia, o polimorfismo é esse override, é literalmente isso kaakaka 
+
+package javaestudos;
+
+public class Conversor {
+    // 1. Atributos PRIVADOS: Ninguém do Main toca neles diretamente
+    private String nome;
+    private int level;
+
+    public Conversor(String nome, int level) {
+        this.nome = nome;
+        this.level = level;
+    }
+
+    // --- O MÉTODO GET (O Interfone/Leitura) ---
+    // Ele serve apenas para "retornar" o valor para quem pediu
+    public String getNome() {
+        return this.nome;
+    }
+
+    // --- O MÉTODO SET (A Portaria/Escrita) ---
+    // Aqui nós colocamos uma REGRA: o nível não pode ser menor que 1
+    public void setLevel(int novoLevel) {
+        if (novoLevel >= 1) {
+            this.level = novoLevel;
+            System.out.println("Level alterado para " + novoLevel);
+        } else {
+            System.out.println("ERRO: O level " + novoLevel + " é inválido! Mantendo o anterior.");
+        }
+    }
+
+    // Get para o Level também, senão o Main não consegue ler
+    public int getLevel() {
+        return this.level;
+    }
+}
+
+tá aí um exemplo de get e set, 
+
+FAZ EXERCÍCIO DE ENCAPSULAMENTO E GET E SET, E DE POLIMORFISMO, E ESTUDA SOBRE O FINAL O PROTECTED E PRIVATE
+FAZ EXERCÍCIO DE ENCAPSULAMENTO E GET E SET, E DE POLIMORFISMO, E ESTUDA SOBRE O FINAL O PROTECTED E PRIVATE
+FAZ EXERCÍCIO DE ENCAPSULAMENTO E GET E SET, E DE POLIMORFISMO, E ESTUDA SOBRE O FINAL O PROTECTED E PRIVATE
+FAZ EXERCÍCIO DE ENCAPSULAMENTO E GET E SET, E DE POLIMORFISMO, E ESTUDA SOBRE O FINAL O PROTECTED E PRIVATE
+FAZ EXERCÍCIO DE ENCAPSULAMENTO E GET E SET, E DE POLIMORFISMO, E ESTUDA SOBRE O FINAL O PROTECTED E PRIVATE
