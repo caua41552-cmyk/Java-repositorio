@@ -486,7 +486,77 @@ você cria uma variável que vai receber o valor retornado da função/método d
 NÃO USE O RETURN NULL, SE FOR CRIAR UMA FUNÇÃO QUE NÃO RETORNA UM VALOR, USE O PUBLIC STATIC VOID, SEU ANIMALAL
 Você nunca vai usar o return null; você usa quando quer que a função não retorne nada
 
-package projeto; // Nome da pasta que acabamos de criar
+try{
+    System.out.print("ID: ");
+    int usuarioId = scanner.nextInt();
+    System.out.println(exp[usuarioId]);
+
+} catch (InputMismatchException | ArrayIndexOutOfBoundsException | ArithmeticException e){
+    System.out.println("O erro ocorrido foi: %s".formatted(e));
+} finally{
+    System.out.println("Código executado com sucesso.");
+}
+
+import java.util.InputMismatchException; IMPORTE ESSA BIBLIOTECA PARA TRATAR ERROS DO SCANNER, exemplo: usuário digitou uma string um um scanner que lê int
+try: você sabe o que faz, ele testa o que estiver dentro dele para ver se vai dar erro
+catch: é o except, ele mostra a mensagem do erro
+(ArrayIndexOutOfBoundsException e) esse é o erro, e o "e", ele é uma variável criada ali, ele vai receber o arrayindex enfim
+finally: mostra aquela mensagem mesmo se não der erro, ou se der, do mesmo jeito ele vai aparecer kakak
+catch (ArithmeticException | ArrayIndexOutOfBoundsException e) aqui tem dois erros, em uma mesma linha de catch, 
+
+public static int dividir(int n1, int n2) throws ArithmeticException {
+    return n1 / n2;
+} //isso em um arquivo
+
+public static void main(String[] args) {
+    try {
+        int res = dividir(10, 0); // O erro "sobe" para cá
+    } catch (ArithmeticException e) {
+        System.out.println("O método 'dividir' me jogou um erro, e eu peguei!");
+    }
+}// isso em outro arquivo
+
+acima, existem dois arquivos, vamos aprender a usar o throws, ele é usado em função
+Existem dois tipos, o throw e o throws
+throw: ele é tipo o raise no python, você usa ele para der erro na cara do usuário
+throw new Exception("Saldo insuficiente! Você só tem R$ " + saldo); você usa isso dentro de um if, else if ou else e usa para dar o erro,
+no throw em cima, o exception pode mudar para outro tratamento de erro
+throws: sabe que dá erro e deixa passar,
+o throws só funciona se tiver um throw
+
+public static void comprar(int moedas, int preco) throws Exception {
+    if (moedas < preco) {
+        // O método LANÇA o erro se você for pobre no jogo (throw)
+        throw new Exception("Saldo insuficiente de moedas!");
+    }
+    System.out.println("Item comprado com sucesso!");
+}
+
+public static void main(String[] args) {
+    Scanner teclado = new Scanner(System.in);
+
+    try {
+        System.out.print("Quantas moedas você tem? ");
+        int minhasMoedas = teclado.nextInt();
+
+        // Chamando o método que tem o 'throws'
+        // O Java OBRIGA a estar dentro do try/catch
+        comprar(minhasMoedas, 50); 
+
+    } catch (Exception e) {
+        // Oi aluno! Aqui o Main pega a "batata quente" que o comprar jogou
+        System.out.println("ERRO NA COMPRA: " + e.getMessage());
+    } finally {
+        System.out.println("Sistema de loja encerrado.");
+        teclado.close();
+    }
+EXEMPLO DE CÓDIGO QUE USA THROWS ACIMA
+a mensagem do thorows só aparece no catch, e quando você coloca para ele exibir a mensagem kk, somente isso
+
+
+
+JAVA POO(PROGRAMAÇÃO ORIENTADA A OBJETOS)
+package projeto; // Nome da pasta que contém os projetos, ou seja, a pasta mãe
 
 public class Heroi {
     public String nome;
@@ -504,6 +574,7 @@ public class Heroi {
 }
 
 package projeto; // Mesma pasta, mesmo pacote
+você usa esse package para importar outro arquivo java, se quiser que eles tenham a mesma coisa, kkkkkkkkk
 
 public class Start {
     public static void main(String[] args) {
