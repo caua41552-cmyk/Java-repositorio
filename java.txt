@@ -718,8 +718,9 @@ class Conversor{
             
         }
 
+        @Override
         public void falar(){
-            System.out.println("Nome: " + nome + " | Idade: " + idade);
+            System.out.println("RUGIDOS!");
         }
     }
     public static void main(String[] args) {
@@ -732,69 +733,70 @@ HERANÇA em 2 arquivos, O CÓDIGO ESTÁ EM CIMA
 a primeira linha está dizendo que a classe ContaEspecial vai receber todos os self da classe Conversor, que está em outro arquivo kk
 o super() serve para dizer, pega os valores da classe Conversor
 o super() tem que estar acima de todos, 
+POLIMORFISMO: É ESSE @override
 
 
 
-POLIMORFISMO JAVA POO
 
 
-    @Override
-    public void status() {
-    // Aqui está o pulo do gato!
-    System.out.println("--- STATUS DE GUERREIRO ---");
-    System.out.println("Nome: " + this.nome);
-    System.out.println("Nível: " + this.level);
-    System.out.println("Poder de Ataque: " + this.forca);
-}
-
-o método status já existia, o polimorfismo é esse override, é literalmente isso kaakaka 
-
-
-
-MÉTODO GET E SET
-
-
+ENCAPSULAMENTO
 
 package javaestudos;
 
-public class Conversor {
-    // 1. Atributos PRIVADOS: Ninguém do Main toca neles diretamente
-    private String nome;
-    private int level;
+class Main {
+    public static class Conta{
+        protected String titular;
+        private double saldo;
 
-    public Conversor(String nome, int level) {
-        this.nome = nome;
-        this.level = level;
-    }
+        public Conta(String titular, double saldo){
+            this.titular = titular;
+            this.saldo = saldo;
+        }
 
-    // --- O MÉTODO GET (O Interfone/Leitura) ---
-    // Ele serve apenas para "retornar" o valor para quem pediu
-    public String getNome() {
-        return this.nome;
-    }
+        //MÉTODO GET
+        public double getSaldo(){
+            return saldo;
+        }
 
-    // --- O MÉTODO SET (A Portaria/Escrita) ---
-    // Aqui nós colocamos uma REGRA: o nível não pode ser menor que 1
-    public void setLevel(int novoLevel) {
-        if (novoLevel >= 1) {
-            this.level = novoLevel;
-            System.out.println("Level alterado para " + novoLevel);
-        } else {
-            System.out.println("ERRO: O level " + novoLevel + " é inválido! Mantendo o anterior.");
+        public void depositar(double valor){
+            saldo += valor;
+            System.out.println("Adicionado %.2f ao saldo.".formatted(valor));
+        }
+
+        public void retirar(double valor){
+            if (saldo >= valor){
+                saldo -= valor;
+                System.out.println("Foi retirado %.2f do saldo.".formatted(valor));
+            } else{
+                System.out.println("Você não possui dinheiro.");
+            }
+        }
+
+        public void mostrarSaldo(){
+            System.out.println("Saldo: %.2f".formatted(saldo));
         }
     }
 
-    // Get para o Level também, senão o Main não consegue ler
-    public int getLevel() {
-        return this.level;
+    public static void main(String[] args) {
+        Conta novaConta = new Conta("Londres", 100.00);
+        novaConta.depositar(30.00);
+        novaConta.retirar(30.00);
+        novaConta.mostrarSaldo();
+        System.out.println(novaConta.getSaldo());
     }
+    
+} 
+
+protected = ele só deixa você acessar se for você que colocou um print
+private = não deixa ninguém acessarm se você der um print minhaconta.saldo() vai dar erro, por que? porque é privado
+o system.out.print novaconta.getSaldo() é o get em ação, ele vai mostrar o valor do saldo
+dá para fazer também, var = novaconta.getSaldo() também funciona
+para fazer um set é tipo:
+public void setSaldo(double novoSaldo) {
+    this.saldo = novoSaldo;
 }
 
-tá aí um exemplo de get e set, 
-string = novocarro.getModelo();
-system.out.print(string) assim ele mostra o modelo do carro, se não for assim vai dar erro
-
-
+um set seria mais ou menos isso
 FAZ EXERCÍCIO DE ENCAPSULAMENTO E GET E SET, E DE POLIMORFISMO, E ESTUDA SOBRE O FINAL O PROTECTED E PRIVATE
 FAZ EXERCÍCIO DE ENCAPSULAMENTO E GET E SET, E DE POLIMORFISMO, E ESTUDA SOBRE O FINAL O PROTECTED E PRIVATE
 FAZ EXERCÍCIO DE ENCAPSULAMENTO E GET E SET, E DE POLIMORFISMO, E ESTUDA SOBRE O FINAL O PROTECTED E PRIVATE

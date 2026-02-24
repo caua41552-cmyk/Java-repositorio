@@ -10,8 +10,9 @@ class Conversor{
             
         }
 
+        @Override
         public void falar(){
-            System.out.println("Nome: " + nome + " | Idade: " + idade);
+            System.out.println("RUgidos.");
         }
     }
     public static void main(String[] args) {

@@ -1,3 +1,4 @@
+
 package javaestudos;
 
 import javaestudos.Conversor.Animal;
@@ -22,7 +23,7 @@ class Main {
     public static void main(String[] args) {
         Pessoa novoHumano = new Pessoa("JOnas", 17);
         novoHumano.falar();
-        Animal novoAnimal = new Animal("MArcos", 9);
+        Animal novoAnimal = new Animal("Thunder", 60);
         novoAnimal.falar();
     }
     
