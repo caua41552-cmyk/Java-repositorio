@@ -7,7 +7,8 @@ public class Arquivojava {
     //Comece a programar aqui
     }
 }
-
+static: significa que outras classes vão herdar os valroes dessa classe criada
+void: usado nas funções, serve para dizer que aquela função não irá retornar nenhum valor.
 // isso aqui é anotação se você não percebeu.
 quando você for programar, tem que fazer tudo dentro do public static void main, no caso, no começo kk
 
@@ -556,6 +557,36 @@ a mensagem do thorows só aparece no catch, e quando você coloca para ele exibi
 
 
 JAVA POO(PROGRAMAÇÃO ORIENTADA A OBJETOS)
+
+package javaestudos;
+
+COMEÇO DE TUDO PRATICAMENTE
+
+
+
+public class Main {
+    static void Carro{
+        public String marca;
+        public String modelo;
+        public int ano;
+
+        public Carro(String marca, String modelo, int ano){
+            this.marca = marca;
+            this.modelo = modelo;
+            this.ano = ano;
+        }
+
+        public void exibirDados() {
+            System.out.println("Carro: %s | Modelo: %s | Ano: %d .".formatted(marca, modelo, ano));
+        }
+    }
+public static void main(String[] args) {
+    Carro carroNum1 = new Carro("Chevrollet", "XYz", 1981);
+    carroNum1.exibirDados();
+}
+}
+ESTOU COLANDO ESSE CÓDIGO AQUI PORQUE EU NÃO SEI SE O OUTRO FAZ JAVA POO PARA UMA PESSOA
+
 package projeto; // Nome da pasta que contém os projetos, ou seja, a pasta mãe
 
 public class Heroi {
@@ -597,27 +628,115 @@ o new serve para colocar os valores nos parenteses e o Heroi() não preciso expl
 para usar o this. one, você tem que fazer o public String nome; e outras coisas, porque senão não dá para usar o .this
 o .thisnome = nome; é semelhante ao .self do python 
 
-\\Isso aqui é outro arquivo, caso esteja se perguntando kk, esse e o outro
+
+
+HERANÇA JAVA POO
+
 package javaestudos;
-// O 'extends' diz que tudo que o Conversor tem, a ContaEspecial também terá!
-public class ContaEspecial extends Conversor {
-    public double limite;
 
-    public ContaEspecial(String dono, double saldo, double limite) {
-        // O 'super' chama o construtor da classe mãe (Conversor)
-        // Ele envia o dono e o saldo para o molde original
-        super(dono, saldo); 
-        this.limite = limite;
+class Main {
+    //CLASSE NÚMERO 1
+    public static class Pessoa{
+        String nome;
+        int idade;
+
+        public Pessoa(String nome, int idade){
+            this.nome = nome;
+            this.idade = idade;
+        }
+
+        public void falar(){
+            System.out.println("GUGUDADÁ!?");
+        }
+
+        
     }
+    //CLASSE NÚMERO 2
+    public static class humano extends Pessoa{
+        private String genero;
 
-    public void exibirLimite() {
-        System.out.println("Seu limite de crédito é: R$" + this.limite);
+        public humano(String nome, int idade, String genero){
+            super(nome, idade);
+            this.genero = genero;
+        }
+
+        public void mostrarCaracteristicas(){
+            System.out.println("Nome: %s | Idade: %d | Genero: %s".formatted(nome, idade, genero));
+        }
+    }
+    public static void main(String[] args) {
+        humano novoHumano = new humano("JOnas", 17, "Macho");
+        novoHumano.mostrarCaracteristicas();
+        novoHumano.falar();
+    }
+    
+} 
+
+Herança em java em apenas um único arquivo, CÓDIGO ACIMA
+
+
+
+package javaestudos;
+
+import javaestudos.Conversor.Animal;
+
+class Main {
+    //CLASSE NÚMERO 1
+    public static class Pessoa{
+        String nome;
+        int idade;
+
+        public Pessoa(String nome, int idade){
+            this.nome = nome;
+            this.idade = idade;
+        }
+
+        public void falar(){
+            System.out.println("GUGUDADÁ!?");
+        }
+
+        
+    }
+    public static void main(String[] args) {
+        Pessoa novoHumano = new Pessoa("JOnas", 17);
+        novoHumano.falar();
+        Animal novoAnimal = new Animal("MArcos", 9);
+        novoAnimal.falar();
+    }
+    
+} 
+
+package javaestudos;
+
+import javaestudos.Main.Pessoa;
+
+class Conversor{
+    public static class Animal extends Pessoa{
+        
+        public Animal(String nome, int idade){
+            super(nome, idade);
+            
+        }
+
+        public void falar(){
+            System.out.println("Nome: " + nome + " | Idade: " + idade);
+        }
+    }
+    public static void main(String[] args) {
+        Animal novoAnimal = new Animal("Vegeta", 40);
+        novoAnimal.falar();
     }
 }
 
+HERANÇA em 2 arquivos, O CÓDIGO ESTÁ EM CIMA
 a primeira linha está dizendo que a classe ContaEspecial vai receber todos os self da classe Conversor, que está em outro arquivo kk
 o super() serve para dizer, pega os valores da classe Conversor
 o super() tem que estar acima de todos, 
+
+
+
+POLIMORFISMO JAVA POO
+
 
     @Override
     public void status() {
@@ -629,6 +748,12 @@ o super() tem que estar acima de todos,
 }
 
 o método status já existia, o polimorfismo é esse override, é literalmente isso kaakaka 
+
+
+
+MÉTODO GET E SET
+
+
 
 package javaestudos;
 
@@ -666,6 +791,9 @@ public class Conversor {
 }
 
 tá aí um exemplo de get e set, 
+string = novocarro.getModelo();
+system.out.print(string) assim ele mostra o modelo do carro, se não for assim vai dar erro
+
 
 FAZ EXERCÍCIO DE ENCAPSULAMENTO E GET E SET, E DE POLIMORFISMO, E ESTUDA SOBRE O FINAL O PROTECTED E PRIVATE
 FAZ EXERCÍCIO DE ENCAPSULAMENTO E GET E SET, E DE POLIMORFISMO, E ESTUDA SOBRE O FINAL O PROTECTED E PRIVATE
